@@ -1,0 +1,22 @@
+.bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col.my-2
+  = form_for @<%= singular_table_name %> do |f|
+    - if @<%= singular_table_name %>.errors.any?
+      #error_explanation.text-red-600
+        h2 = "#{pluralize(@<%= singular_table_name %>.errors.count, "error")} prohibited this <%= singular_table_name %> from being saved:"
+        ul
+          - @<%= singular_table_name %>.errors.full_messages.each do |message|
+            li = message
+
+<% @attributes.each do |attribute| -%>
+  
+    .-mx-3.md:flex.mb-6
+      .md:w-full.px-3
+        = f.label :<%= attribute[:name] %>, class: 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2'
+        = f.<%= attribute[:field_type] %> :<%= attribute[:name] %>, class: ' appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3', placeholder: '<%= attribute[:name] %>'
+        p.text-grey-dark.text-xs.italic * Required
+<% end -%>
+
+    .-mx-3.flex.justify-end
+      = link_to 'Cancel', <%= plural_table_name %>_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2'
+      = f.submit class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+ 

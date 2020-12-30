@@ -1,0 +1,13 @@
+Description:
+    This generator generates a worker
+
+Example:
+    rails generate worker Test
+
+    This will create:
+        app/workers/test_worker.rb
+
+    rails generate worker Test --module namespace
+
+    This will create:
+        app/workers/namespace/test_worker.rb

@@ -1,0 +1,25 @@
+nav.rounded.font-sans.w-full.mb-4
+  ol.list-reset.flex
+    li.ml-0
+      a.font-bold href="/" Home
+    li.ml-2
+      span
+       | /
+    li.ml-2
+      a.font-bold href="/<%= plural_table_name %>" <%= plural_table_name.titleize %>
+    li.ml-2
+      span
+       | /
+    li.ml-2 = @<%= singular_table_name %>.id
+
+.bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col.my-2
+
+<% @attributes.each do |attribute| -%>
+  p
+    .block.uppercase.tracking-wide.text-grey-darker.text-xs.font-bold.mb-2 <%= attribute[:name].humanize %>:
+    = @<%= singular_table_name %>.<%= attribute[:name] %>
+<% end -%>
+
+  .-mx-3.flex.justify-start
+    = link_to 'Back', <%= plural_table_name %>_path, class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mr-2'
+    = link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2'

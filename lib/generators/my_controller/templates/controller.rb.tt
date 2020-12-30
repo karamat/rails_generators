@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+class <%= class_name %>Controller < ApplicationController
+  # before_action :authenticate_user!
+  before_action :article, only: [:show, :edit, :update, :destroy]
+
+  private
+
+  def <%= model.downcase %>
+    @<%= model.downcase %> ||= <%= model.titleize %>.find_by_id(params[:id])
+  end
+
+  def <%= model.downcase %>_params
+    params.require(:<%= model.downcase %>).permit()
+  end
+end
