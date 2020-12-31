@@ -4,6 +4,6 @@ class <%= class_name %>Controller < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @<%= @model.downcase %> = <%= @model %>.new
+    @<%= @model.underscore %> = <%= @model %>.new
   end
 end

@@ -21,7 +21,7 @@ class IndexActionGenerator < BaseControllerGenerator
 <<-RUBY
 
   def index
-    @#{model.pluralize.downcase} = #{class_name}::List.new(params).call
+    @#{model.pluralize.underscore} = #{class_name}::List.new(params).call
   end
 RUBY
         end

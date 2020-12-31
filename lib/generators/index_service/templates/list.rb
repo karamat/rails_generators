@@ -9,7 +9,7 @@ module <%= class_name.pluralize %>
     end
 
     def call
-      <%= @model_name %>.all
+      <%= @model_name %>.paginate(page: params[:page] || 1).all
     end
   end
 end

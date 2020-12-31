@@ -12,7 +12,7 @@
     .-mx-3.md:flex.mb-6
       .md:w-full.px-3
         = f.label :<%= attribute[:name] %>, class: 'block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2'
-        = f.<%= attribute[:field_type] %> :<%= attribute[:name] %>, class: ' appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3', placeholder: '<%= attribute[:name] %>'
+        = f.<%= attribute[:field_type] %> :<%= attribute[:name] %>, class: 'appearance-none block w-full text-grey-darker border-2 border-gray-400 focus:bg-white focus:border-gray-700 focus:border-2 rounded py-3 px-4 mb-3', placeholder: '<%= attribute[:name] %>'
         p.text-grey-dark.text-xs.italic * Required
 <% end -%>
 

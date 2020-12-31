@@ -21,7 +21,7 @@ class NewActionGenerator < BaseControllerGenerator
 <<-RUBY
 
   def new
-    @#{model.downcase} = #{model}.new
+    @#{model.underscore} = #{model}.new
   end
 RUBY
         end

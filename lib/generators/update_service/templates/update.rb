@@ -2,21 +2,21 @@
 
 module <%= class_name.pluralize %> 
   class Update
-    attr_reader :<%= @model_name.downcase %>, :params
+    attr_reader :<%= @model_name.underscore %>, :params
 
-    def initialize(<%= @model_name.downcase %>, params)
-      @<%= @model_name.downcase %> = <%= @model_name.downcase %>
+    def initialize(<%= @model_name.underscore %>, params)
+      @<%= @model_name.underscore %> = <%= @model_name.underscore %>
       @params = params
     end
 
     def call
-      update_<%= @model_name.downcase %>
+      update_<%= @model_name.underscore %>
     end
 
     private
 
-      def update_<%= @model_name.downcase %>
-        <%= @model_name.downcase %>.update(params)
+      def update_<%= @model_name.underscore %>
+        <%= @model_name.underscore %>.update(params)
       end
   end
 end

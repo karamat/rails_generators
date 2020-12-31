@@ -11,7 +11,7 @@ class ActionViewGenerator < Rails::Generators::NamedBase
   private
 
     def file_path
-      File.join('app/views', class_name.downcase, "#{action_name}.#{format}.#{handler}")
+      File.join('app/views', class_name.underscore, "#{action_name}.#{format}.#{handler}")
     end
 
     def format

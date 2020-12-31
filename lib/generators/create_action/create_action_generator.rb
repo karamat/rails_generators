@@ -21,9 +21,9 @@ class CreateActionGenerator < BaseControllerGenerator
 <<-RUBY
 
   def create
-    @#{model.downcase} = #{class_name}::Create.new(#{model.downcase}_params).call
-    if @#{model.downcase}.valid? && @#{model.downcase}.persisted?
-      redirect_to @#{model.downcase}, notice: '#{model} was successfully created'
+    @#{model.underscore} = #{class_name}::Create.new(#{model.underscore}_params).call
+    if @#{model.underscore}.valid? && @#{model.underscore}.persisted?
+      redirect_to @#{model.underscore}, notice: '#{model} was successfully created'
     else
       render :new
     end

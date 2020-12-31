@@ -21,7 +21,7 @@ class ShowActionGenerator < BaseControllerGenerator
 <<-RUBY
 
   def show
-    redirect_to(#{model.pluralize.downcase}_path, notice: '#{model} not found') if @#{model.downcase}.nil?
+    redirect_to(#{model.pluralize.underscore}_path, notice: '#{model} not found') if @#{model.underscore}.nil?
   end
 RUBY
         end

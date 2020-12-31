@@ -1,9 +1,9 @@
-= link_to 'New <%= human_name.titleize %>', new_<%= singular_table_name %>_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+.container
+  = link_to 'New <%= @model.titleize %>', new_<%= singular_table_name %>_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
 
-.container.mx-auto
-  .py-8
+  .py-8.mx-auto
     div
-      h2.text-2xl.font-semibold.leading-tight <%= human_name.titleize %>
+      h2.text-2xl.font-semibold.leading-tight <%= human_name %>
     .my-2.flex.sm:flex-row.flex-col
       .flex.flex-row.mb-1.sm:mb-0
         / .relative

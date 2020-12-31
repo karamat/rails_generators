@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-module <%= class_name.pluralize.titleize %> 
+module <%= class_name %> 
   class Destroy
-    attr_reader :<%= model_name.downcase %>
+    attr_reader :<%= model_name.underscore %>
 
-    def initialize(<%= model_name.downcase %>)
-      @<%= model_name.downcase %> = <%= model_name.downcase %>
+    def initialize(<%= model_name.underscore %>)
+      @<%= model_name.underscore %> = <%= model_name.underscore %>
     end
 
     def call
-      <%= model_name.downcase %>.destroy
+      <%= model_name.underscore %>.destroy
     end
   end
 end

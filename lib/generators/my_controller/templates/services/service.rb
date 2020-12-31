@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module <%= class_name.pluralize %> 
-  class <%= @action.titleize %>
+  class <%= @action.capitalized %>
     attr_reader :params
 
     def initialize(params)

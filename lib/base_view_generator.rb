@@ -48,7 +48,7 @@ class BaseViewGenerator < Rails::Generators::NamedBase
   
     def allowed_attributes
       model_attributes.delete_if do |column|
-        !!column[:name].to_s.match(/created_at|updated_at/)
+        !!column[:name].to_s.match(/id|created_at|updated_at/)
       end
     end
 end

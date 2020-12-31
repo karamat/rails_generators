@@ -2,15 +2,15 @@
 
 class <%= class_name %>Controller < ApplicationController
   # before_action :authenticate_user!
-  before_action :article, only: [:show, :edit, :update, :destroy]
+  before_action :<%= model.underscore %>, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def <%= model.downcase %>
-    @<%= model.downcase %> ||= <%= model.titleize %>.find_by_id(params[:id])
+  def <%= model.underscore %>
+    @<%= model.underscore %> ||= <%= model %>.find_by_id(params[:id])
   end
 
-  def <%= model.downcase %>_params
-    params.require(:<%= model.downcase %>).permit()
+  def <%= model.underscore %>_params
+    params.require(:<%= model.underscore %>).permit(<%= allowed_attributes.map {|a| ":#{a[:name]}"} %>)
   end
 end

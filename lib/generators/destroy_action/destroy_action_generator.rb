@@ -14,16 +14,15 @@ class DestroyActionGenerator < BaseControllerGenerator
 
   def create_action_file
     @action_name = 'destroy'
-
     if File.exists?(file_path)
       unless action_exists?
         inject_into_file file_path, after: /before_action.*\n(\s*before_action.*\n)*/, force: true do
 <<-RUBY
 
   def destroy
-    redirect_to(#{class_name.pluralize.downcase}_path, notice: '#{model} not found') and return if @#{model.downcase}.nil?
-    #{class_name.titleize}::Destroy.new(@#{model.downcase}).call
-    redirect_to(#{class_name.pluralize.downcase}_path, notice: '#{model} was successfully destroyed.')
+    redirect_to(#{class_name.pluralize.underscore}_path, notice: '#{model} not found') and return if @#{model.underscore}.nil?
+    #{class_name}::Destroy.new(@#{model.underscore}).call
+    redirect_to(#{class_name.pluralize.underscore}_path, notice: '#{model} was successfully destroyed.')
   end
 RUBY
         end
